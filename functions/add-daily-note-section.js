@@ -88,7 +88,7 @@ exports.handler = async function (event, context) {
       "rich_text": [{
         "type": "text",
         "text": {
-          "content": `${quote.text}\n\n•${quote.author}`,
+          "content": `${quote.text}\n• ${quote.author}`,
         },
       }],
       "color": "default"
