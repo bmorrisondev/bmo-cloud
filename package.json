@@ -1,0 +1,25 @@
+{
+  "name": "bmo-cloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "netlify dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmorrisondev/bmo-cloud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmorrisondev/bmo-cloud/issues"
+  },
+  "homepage": "https://github.com/bmorrisondev/bmo-cloud#readme",
+  "dependencies": {
+    "@notionhq/client": "^2.2.3",
+    "inspirational-quotes": "^2.0.1"
+  }
+}

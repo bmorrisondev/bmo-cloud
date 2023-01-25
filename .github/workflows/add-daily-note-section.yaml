@@ -1,0 +1,13 @@
+on:
+  schedule:
+    - cron:  '0 4 * * 1-5'
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Execute
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: '${{ secrets.NETLIFY_URL }}/.netlify/functions/add-daily-note-section'
+        method: 'GET'
