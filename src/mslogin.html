@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+  <title>Login</title>
+  <script>
+    let url = `https://login.microsoftonline.com/6d3b7e6f-e7d7-40bc-a674-febca54ff658/oauth2/v2.0/authorize?`
+    url += `tenant=common`
+    url += `&client_id=bdc1c7c5-4b09-48ac-b763-6bc4750ca7a9`
+    url += `&response_type=code`
+    url += `&redirect_uri=${window.location.origin}/msoauth.html`
+    url += `&scope=offline_access user.read tasks.readwrite`
+
+    window.location = url
+  </script>
+</head>
+<body>
+  mslogin.html // TODO: Redirect to ms login w/redirect_uri to oauth.html
+</body>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <title>ohai!</title>
+  <script async>
+    (async() => {
+      try {
+        const { search } = window.location;
+        let str = search.replace("?", "");
+        let split = str.split("&");
+        let dict = {};
+        split.forEach(el => {
+          let s2 = el.split("=");
+          dict[s2[0]] = s2[1];
+        });
+        let { code } = dict;
+        await fetch("/.netlify/functions/mstokens", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            code
+          })
+        });
+        document.body.innerHTML = "Done!"
+      } catch (err) {
+        console.log(err)
+        document.body.innerHTML = err
+      }
+    })();
+  </script>
+</head>
+<body>
+  Loading...
+</body>

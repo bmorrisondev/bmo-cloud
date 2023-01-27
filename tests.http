@@ -1,3 +1,7 @@
 @base = http://localhost:8888/.netlify/functions
 
 get {{base}}/add-daily-note-section
+
+###
+
+get {{base}}/sync-daily-note-tasks

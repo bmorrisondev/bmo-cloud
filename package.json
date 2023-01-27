@@ -20,6 +20,8 @@
   "homepage": "https://github.com/bmorrisondev/bmo-cloud#readme",
   "dependencies": {
     "@notionhq/client": "^2.2.3",
+    "@planetscale/database": "^1.5.0",
+    "axios": "^1.2.5",
     "inspirational-quotes": "^2.0.1"
   }
 }
