@@ -5,3 +5,7 @@ get {{base}}/add-daily-note-section
 ###
 
 get {{base}}/sync-daily-note-tasks
+
+### 
+
+get {{base}}/refresh-mstokens

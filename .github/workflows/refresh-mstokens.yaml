@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 * * * *'
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Execute
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: '${{ secrets.NETLIFY_URL }}/.netlify/functions/refresh-mstokens'
+        method: 'GET'
