@@ -1,0 +1,8 @@
+{
+    "everyMinute": "*/1 * * * *",
+    "everyOtherMinute": "*/2 * * * *",
+    "everyFiveMinutes": "*/5 * * * *",
+    "weekdaysAtMidnight": "0 0 * * 1-5",
+    "weedaysAt8am": "0 8 * * 1-5",
+    "hourly": "0 * * * *"
+}
