@@ -8,22 +8,22 @@ spec:
   containers:
     - name: bmo-cloud-scheduler
       image: localhost:32000/bmo-cloud-scheduler
-    - env:
-      - name: NOTION_KEY
-        valueFrom:
-          secretKeyRef:
-            name: bmo-cloud-scheduler-secrets
-            key: NOTION_KEY
-            optional: false
-      - name: NOTES_DBID
-        valueFrom:
-          secretKeyRef:
-            name: bmo-cloud-scheduler-secrets
-            key: NOTES_DBID
-            optional: false
-      - name: TASKS_DBID
-        valueFrom:
-          secretKeyRef:
-            name: bmo-cloud-scheduler-secrets
-            key: TASKS_DBID
-            optional: false
+      env:
+        - name: NOTION_KEY
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: NOTION_KEY
+              optional: false
+        - name: NOTES_DBID
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: NOTES_DBID
+              optional: false
+        - name: TASKS_DBID
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: TASKS_DBID
+              optional: false
