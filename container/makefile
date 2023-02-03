@@ -5,4 +5,4 @@ publish: build
 	docker push localhost:32000/bmo-cloud-scheduler
 
 deploy: publish
-	k apply -f ./manifest.yaml
+	microk8s kubectl apply -f ./manifest.yaml
