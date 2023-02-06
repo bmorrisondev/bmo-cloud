@@ -9,28 +9,13 @@ const dailyTodos = [
 ]
 
 exports.handler = async function (event, context) {
-
   notion = new Client({
     auth: process.env.NOTION_KEY
   })
 
-  // Get the latest note in that db
-  let params = {
-    database_id: process.env.NOTES_DBID,
-    sorts: [
-      {
-        property: 'Date',
-        direction: 'descending'
-      }
-    ]
-  }
-  let res = await notion.databases.query(params)
-
-  let latestNote = res.results[0]
-
   // this is a template to add the blocks I want
-  params = {
-    block_id: latestNote.id,
+  let params = {
+    block_id: process.env.DAILY_NOTE_ID,
     children: [
       {
         type: "divider",
