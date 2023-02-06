@@ -5,7 +5,8 @@ const Quote = require('inspirational-quotes');
 const dailyTodos = [
   "review email",
   "review github issues",
-  "review todos"
+  "review todos",
+  "review projects"
 ]
 
 exports.handler = async function (event, context) {
