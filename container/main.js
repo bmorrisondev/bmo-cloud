@@ -29,12 +29,14 @@ async function getLatestNote() {
 
 export async function syncDailyNotes (event, context) {
   try {
+    // get the latest note in the db
     let latestNote = await getLatestNote()
     
     let notion = new Client({
       auth: process.env.NOTION_KEY
     })
     
+    // get all the blocks on that page
     let children = await notion.blocks.children.list({
       block_id: latestNote.id,
       page_size: 100
@@ -42,6 +44,7 @@ export async function syncDailyNotes (event, context) {
 
     console.log(`got ${children.results.length} blocks`)
 
+    // flatten the list of blocks into only the to dos
     let todos = children.results.filter(c => c.type === 'to_do')
     let flattened = []
     todos.forEach(t => {
@@ -56,8 +59,8 @@ export async function syncDailyNotes (event, context) {
 
     console.log(flattened.length)
 
+    // loop over the list and create the entry in the tasks database
     if(flattened.length) {    
-      // TODO: for each task, push to ms todo, complete task in notion
       for (let i = 0; i < flattened.length; i++) {
         let t = flattened[i]
         console.log('processing', t.text)
@@ -81,6 +84,8 @@ export async function syncDailyNotes (event, context) {
           }
         })
 
+        // also, update the block in the notes page to be a backlink to the todo entry
+        // this allows me to easily jump right to that task if I want to do anything about it.
         await notion.blocks.update({
           block_id: t.id,
           to_do: {

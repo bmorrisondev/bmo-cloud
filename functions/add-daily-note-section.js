@@ -14,6 +14,7 @@ exports.handler = async function (event, context) {
     auth: process.env.NOTION_KEY
   })
 
+  // Get the latest note in that db
   let params = {
     database_id: process.env.NOTES_DBID,
     sorts: [
@@ -27,6 +28,7 @@ exports.handler = async function (event, context) {
 
   let latestNote = res.results[0]
 
+  // this is a template to add the blocks I want
   params = {
     block_id: latestNote.id,
     children: [
@@ -63,6 +65,7 @@ exports.handler = async function (event, context) {
     ]
   }
 
+  // this block adds my daily todos from an array
   dailyTodos.forEach(todo => {
     params.children[2].toggle.children.push({
       "type": "to_do",
@@ -80,8 +83,8 @@ exports.handler = async function (event, context) {
     })
   })
 
+  // and add the inspirational quote
   let quote = Quote.getQuote()
-
   params.children.push({
     "type": "quote",
     "quote": {
