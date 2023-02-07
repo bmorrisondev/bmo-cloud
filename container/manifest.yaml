@@ -27,3 +27,51 @@ spec:
               name: bmo-cloud-scheduler-secrets
               key: TASKS_DBID
               optional: false
+        - name: DBHOST
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: DBHOST
+              optional: false
+        - name: DBUSER
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: DBUSER
+              optional: false
+        - name: DBPASS
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: DBPASS
+              optional: false
+        - name: DAILY_NOTE_ID
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: DAILY_NOTE_ID
+              optional: false
+        - name: OFFICE_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: OFFICE_CLIENT_ID
+              optional: false
+        - name: OFFICE_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: OFFICE_CLIENT_SECRET
+              optional: false
+        - name: OFFICE_TENANT_ID
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: OFFICE_TENANT_ID
+              optional: false
+        - name: TASKS_LISTID
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: TASKS_LISTID
+              optional: false
