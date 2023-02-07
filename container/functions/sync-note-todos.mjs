@@ -1,10 +1,8 @@
 import { Client } from "@notionhq/client";
-
-async function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+import { sleep } from "../shared/utils.mjs"
 
 export async function syncDailyNotes (event, context) {
+  console.log("starting syncDailyNotes")
   try {    
     let notion = new Client({
       auth: process.env.NOTION_KEY
