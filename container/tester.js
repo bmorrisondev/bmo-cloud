@@ -7,5 +7,5 @@ import { refreshTokens } from './shared/office.mjs';
 
 
 (async () => {
-  await syncTodoTasks();
+  await syncDailyNotes();
 })()
