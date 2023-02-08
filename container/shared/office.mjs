@@ -1,6 +1,6 @@
 import { connect } from '@planetscale/database'
 import axios from 'axios'
-import { fetch } from 'node-fetch'
+import fetch from 'node-fetch'
 
 export async function refreshTokens() {
   // list tasks from todo
