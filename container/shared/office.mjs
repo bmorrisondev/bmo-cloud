@@ -1,10 +1,12 @@
 import { connect } from '@planetscale/database'
 import axios from 'axios'
+import { fetch } from 'node-fetch'
 
 export async function refreshTokens() {
   // list tasks from todo
   try {
     const config = {
+      fetch,
       host: process.env.DBHOST,
       username: process.env.DBUSER,
       password: process.env.DBPASS
@@ -38,5 +40,6 @@ export async function refreshTokens() {
     return JSON.parse(responseBody)
   } catch (err) {
     console.log(err)
+    throw err
   }
 }

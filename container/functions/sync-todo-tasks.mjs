@@ -4,8 +4,6 @@ import { addMinutes } from 'date-fns'
 import { createTodo } from '../shared/notion.mjs'
 import { sleep } from "../shared/utils.mjs";
 
-
-
 export async function syncTodoTasks() {
   console.log("starting syncDailyNotes")
   

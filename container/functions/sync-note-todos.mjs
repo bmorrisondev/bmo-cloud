@@ -62,7 +62,7 @@ export async function syncDailyNotes (event, context) {
               "title": [
                 {
                   "text": {
-                      "content": t.text
+                    "content": t.text
                   }
                 }
               ]
