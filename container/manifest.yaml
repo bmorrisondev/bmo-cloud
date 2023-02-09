@@ -75,3 +75,9 @@ spec:
               name: bmo-cloud-scheduler-secrets
               key: TASKS_LISTID
               optional: false
+        - name: JOURNAL_DBID
+          valueFrom:
+            secretKeyRef:
+              name: bmo-cloud-scheduler-secrets
+              key: JOURNAL_DBID
+              optional: false

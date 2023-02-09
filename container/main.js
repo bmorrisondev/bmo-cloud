@@ -4,8 +4,10 @@ dotenv.config()
 
 import { syncDailyNotes } from './functions/sync-note-todos.mjs'
 import { syncTodoTasks } from './functions/sync-todo-tasks.mjs'
+import { addDailyNoteSection } from './functions/add-daily-note-section.mjs'
 
 cron.schedule('0 0 * * *', syncDailyNotes)
+cron.schedule('0 0 * * *', addDailyNoteSection)
 cron.schedule('*/5 * * * *', syncTodoTasks)
 
 
