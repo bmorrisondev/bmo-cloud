@@ -11,3 +11,4 @@ cron.schedule('0 2 * * *', addDailyNoteSection)
 cron.schedule('*/5 * * * *', syncTodoTasks)
 
 
+// noop to test ci
