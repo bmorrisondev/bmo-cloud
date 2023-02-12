@@ -81,3 +81,5 @@ spec:
               name: bmo-cloud-scheduler-secrets
               key: JOURNAL_DBID
               optional: false
+        - name: TZ
+          value: "America/Kentucky/Louisville"
