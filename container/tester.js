@@ -9,5 +9,5 @@ import { clearWeeklyLog } from './functions/clear-weekly-log.mjs';
 
 
 (async () => {
-  await clearWeeklyLog();
+  await addDailyNoteSection();
 })()

@@ -7,3 +7,9 @@ publish: build
 deploy: publish
 	microk8s kubectl delete -f ./manifest.yaml
 	microk8s kubectl apply -f ./manifest.yaml
+
+release:
+	git checkout release
+	git merge main
+	git push
+	git checkout main

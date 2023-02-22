@@ -1,12 +1,12 @@
 import { Client } from "@notionhq/client"
 import * as Quote from 'inspirational-quotes'
 
-const dailyTodos = [
-  "review email",
-  "review github issues",
-  "review todos",
-  "review projects"
-]
+// const dailyTodos = [
+//   "review email",
+//   "review github issues",
+//   "review todos",
+//   "review projects"
+// ]
 
 export async function addDailyNoteSection (event, context) {
   let notion = new Client({
@@ -68,29 +68,103 @@ export async function addDailyNoteSection (event, context) {
             }
           ],
           "color": "default",
-          "children":[]
+          "children":[
+            {
+              "type": "to_do",
+              "to_do": {
+                "rich_text": [{
+                  "type": "text",
+                  "text": {
+                    "content": "review email",
+                  }
+                }],
+                "checked": false,
+                "color": "default"
+              }
+            },
+            {
+              "type": "to_do",
+              "to_do": {
+                "rich_text": [{
+                  "type": "text",
+                  "text": {
+                    "content": "review github issues"
+                  }
+                }],
+                "checked": false,
+                children: [
+                  {
+                    "type": "to_do",
+                    "to_do": {
+                      "rich_text": [{
+                        "type": "text",
+                        "text": {
+                          "content": "assigned issues",
+                          "link": {
+                            url: "https://github.com/issues?q=is%3Aopen+is%3Aissue+assignee%3Abmorrisondev+archived%3Afalse+user%3Aplanetscale"
+                          }
+                        }
+                      }],
+                      "checked": false,
+                      "color": "default"
+                    }
+                  },
+                  {
+                    "type": "to_do",
+                    "to_do": {
+                      "rich_text": [{
+                        "type": "text",
+                        "text": {
+                          "content": "assigned prs",
+                          "link": {
+                            url: "https://github.com/pulls/assigned"
+                          }
+                        }
+                      }],
+                      "checked": false,
+                      "color": "default"
+                    }
+                  },
+                  {
+                    "type": "to_do",
+                    "to_do": {
+                      "rich_text": [{
+                        "type": "text",
+                        "text": {
+                          "content": "public docs issues",
+                          "link": {
+                            url: "https://github.com/planetscale/docs/issues"
+                          }
+                        }
+                      }],
+                      "checked": false,
+                      "color": "default"
+                    }
+                  },
+                ]
+              }
+            },
+            {
+              "type": "to_do",
+              "to_do": {
+                "rich_text": [{
+                  "type": "text",
+                  "text": {
+                    "content": "organize projects & tasks",
+                    "link": {
+                      url: "https://www.notion.so/brianmmdev/Organize-dashboard-11007258c78541739de2dca30002e795?pvs=4"
+                    }
+                  }
+                }],
+                "checked": false,
+                "color": "default"
+              }
+            },
+          ]
         }
       }
     ]
   }
-
-  // this block adds my daily todos from an array
-  dailyTodos.forEach(todo => {
-    params.children[2].toggle.children.push({
-      "type": "to_do",
-      "to_do": {
-        "rich_text": [{
-          "type": "text",
-          "text": {
-            "content": todo,
-            "link": null
-          }
-        }],
-        "checked": false,
-        "color": "default"
-      }
-    })
-  })
 
   // and add the inspirational quote
   let quote = Quote.getQuote()
