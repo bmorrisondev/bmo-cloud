@@ -32,8 +32,6 @@ export async function addDailyNoteSection (event, context) {
     }
   })
 
-  console.log(journalPage)
-
   // this is a template to add the blocks I want
   let params = {
     block_id: process.env.DAILY_NOTE_ID,
@@ -167,7 +165,7 @@ export async function addDailyNoteSection (event, context) {
   }
 
   // and add the inspirational quote
-  let quote = Quote.getQuote()
+  let quote = Quote.getRandomQuote()
   params.children.push({
     "type": "quote",
     "quote": {
