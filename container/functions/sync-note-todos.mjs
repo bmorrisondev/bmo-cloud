@@ -1,7 +1,7 @@
 import { Client } from "@notionhq/client";
 import { sleep } from "../shared/utils.mjs"
 
-export async function syncDailyNotes (event, context) {
+export async function syncDailyTodos (event, context) {
   console.log("starting syncDailyNotes")
   try {    
     let notion = new Client({
