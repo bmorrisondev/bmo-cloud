@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client"
-import * as Quote from 'inspirational-quotes'
+import fetch from 'node-fetch'
 
 // const dailyTodos = [
 //   "review email",
@@ -165,7 +165,7 @@ export async function addDailyNoteSection (event, context) {
   }
 
   // and add the inspirational quote
-  let quote = Quote.getRandomQuote()
+  let quote = getRandomQuote()
   params.children.push({
     "type": "quote",
     "quote": {
@@ -184,5 +184,14 @@ export async function addDailyNoteSection (event, context) {
 
   return {
     statusCode: 200,
+  }
+}
+
+async function getRandomQuote() {
+  let res = await fetch('https://zenquotes.io/api/today')
+  let data = await res.json()
+  if (data.length > 0) {
+    const { q, a } = data[0]
+    return { text: q, author: a }
   }
 }
